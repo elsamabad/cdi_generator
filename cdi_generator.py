@@ -317,8 +317,7 @@ if cdi_input == "1": #CTD
         name=str(samples.loc [i,"index"])
         name = name.zfill(2) 
         ctd_text = "CTD"  
-        name3= "Water column data acquired on board the R/V " + vessel 
-        + " with a SeaBird SBE911 plus " + ctd_text + " during the " + cruise_name + " cruise."
+        name3= "Water column data acquired on board the R/V " + vessel + " with a SeaBird SBE911 plus " + ctd_text + " during the " + cruise_name + " cruise."
         fila=fila+1
         lista_abstract.append(name3)
     samples['abstract'] = lista_abstract
@@ -364,7 +363,7 @@ if cdi_input == "2": #CTD_ROS
   shutil.copy("cdi_model_ctd_ros.xml", "cdi_model_ctd_ros_1.xml")
   filename = "cdi_model_ctd_ros_1.xml"
 
-  infilename = os.path.join(folder,filename)
+  infilename = os.path.join(filename)
   newname = infilename.replace('cdi_model_ctd_ros_1.xml', 'cdi_model_ctd_ros.txt')
   output = os.rename(infilename, newname)
   cdi_model = "_ctd_ros"
@@ -432,7 +431,7 @@ if  cdi_input == "3": #CTD_ROS_LADCP
   shutil.copy("cdi_model_ctd_ros_ladcp.xml", "cdi_model_ctd_ros_ladcp_1.xml")
   filename = "cdi_model_ctd_ros_ladcp_1.xml"
 
-  infilename = os.path.join(folder,filename)
+  infilename = os.path.join(filename)
   newname = infilename.replace('cdi_model_ctd_ros_ladcp_1.xml', 'cdi_model_ctd_ros_ladcp.txt')
   output = os.rename(infilename, newname)
   cdi_model = "_ctd_ros_ladcp"
@@ -500,7 +499,7 @@ if cdi_input == "4": #CTD_UND
   shutil.copy("cdi_model_ctd_und.xml", "cdi_model_ctd_und_1.xml")
   filename = "cdi_model_ctd_und_1.xml"
 
-  infilename = os.path.join(folder,filename)
+  infilename = os.path.join(filename)
   newname = infilename.replace('/newcdi/cdi_model_ctd_und_1.xml', '/newcdi/cdi_model_ctd_und.txt')
   output = os.rename(infilename, newname)
   cdi_model = "_ctd_und"
@@ -568,7 +567,7 @@ if cdi_input == "5": #DRE
   shutil.copy("cdi_model_dre.xml", "cdi_model_dre_1.xml")
   filename = "cdi_model_dre_1.xml"
 
-  infilename = os.path.join(folder,filename)
+  infilename = os.path.join(filename)
   newname = infilename.replace('cdi_model_dre_1.xml', 'cdi_model_dre.txt')
   output = os.rename(infilename, newname)
   cdi_model = "_dre"
@@ -635,7 +634,7 @@ if cdi_input == "6": #MOC
   shutil.copy("cdi_model_moc.xml", "cdi_model_moc_1.xml")
   filename = "cdi_model_moc_1.xml"
 
-  infilename = os.path.join(folder,filename)
+  infilename = os.path.join(filename)
   newname = infilename.replace('cdi_model_moc_1.xml', 'cdi_model_moc.txt')
   output = os.rename(infilename, newname)
   cdi_model = "_moc"
@@ -701,7 +700,7 @@ if cdi_input == "7": #ROV
   shutil.copy("cdi_model_rov.xml", "/newcdi/cdi_model_rov_1.xml")
   filename = "cdi_model_rov_1.xml"
 
-  infilename = os.path.join(folder,filename)
+  infilename = os.path.join(filename)
   newname = infilename.replace('/newcdi/cdi_model_rov_1.xml', '/newcdi/cdi_model_rov.txt')
   output = os.rename(infilename, newname)
   cdi_model = "_rov"
@@ -773,7 +772,7 @@ if cdi_input == "8": #SVP
   shutil.copy("cdi_model_svp.xml", "cdi_model_svp_1.xml")
   filename = "cdi_model_svp_1.xml"
 
-  infilename = os.path.join(folder,filename)
+  infilename = os.path.join(filename)
   newname = infilename.replace('cdi_model_svp_1.xml', 'cdi_model_svp.txt')
   output = os.rename(infilename, newname)
   cdi_model = "_svp"
@@ -839,7 +838,7 @@ if cdi_input == "9": #TRA
   shutil.copy("cdi_model_tra.xml", "cdi_model_tra_1.xml")
   filename = "cdi_model_tra_1.xml"
 
-  infilename = os.path.join(folder,filename)
+  infilename = os.path.join(filename)
   newname = infilename.replace('cdi_model_tra_1.xml', 'cdi_model_tra.txt')
   output = os.rename(infilename, newname)
   cdi_model = "_tra"
@@ -906,7 +905,7 @@ if cdi_input == "10": #XBT
   shutil.copy("cdi_model_xbt.xml", "cdi_model_xbt_1.xml")
   filename = "cdi_model_xbt_1.xml"
 
-  infilename = os.path.join(folder,filename)
+  infilename = os.path.join(filename)
   newname = infilename.replace('cdi_model_xbt_1.xml', 'cdi_model_xbt.txt')
   output = os.rename(infilename, newname)
   cdi_model = "_xbt"
@@ -932,9 +931,8 @@ if cdi_input == "10": #XBT
     lista_abstract.append(name3)
   samples['abstract'] = lista_abstract
 
-  csv_name= ".\\xbt\\" + "samples"+ cdi_model + ".csv"
+  csv_name= '.\\xbt\\' + "samples"+ cdi_model + ".csv"
   samples.to_csv(csv_name, header=True, index=False)
-  #Primer fer un model de CDI amb les organitzacions i la pestanya CRUISE/STATION
   for i in samples.index: 
       folder_copy= ".\\xbt\\"+ samples["id"][i] + ".txt"
       shutil.copy("cdi_model_xbt.txt",folder_copy)
@@ -973,7 +971,7 @@ if cdi_input == "11": #XSV
   shutil.copy("cdi_model_xsv.xml", "cdi_model_xsv_1.xml")
   filename = "cdi_model_xsv_1.xml"
 
-  infilename = os.path.join(folder,filename)
+  infilename = os.path.join(filename)
   newname = infilename.replace('cdi_model_xsv_1.xml', 'cdi_model_xsv.txt')
   output = os.rename(infilename, newname)
   cdi_model = "_xsv"
